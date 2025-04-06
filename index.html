@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dyslexia Spelling Game</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="game-container">
+    <div id="heading">Spell the Word!</div>
+
+    <div id="image-container">
+        <img src="bat.jpeg" alt="Bat" width="300" />
+    </div>
+
+    <!-- Drop zone blanks -->
+    <div id="blanks-container">
+        <div class="blank" data-letter="B"></div>
+        <div class="blank" data-letter="A"></div>
+        <div class="blank" data-letter="T"></div>
+    </div>
+
+    <!-- Cat mascot with pop-up messages -->
+    <div id="cat">
+        <img src="cat.jpg" alt="Cat Mascot" width="150" />
+        <div id="success-popup" class="popup">🎉 Yay! You spelled it right!</div>
+        <div id="failure-popup" class="popup">❌ Oops! Try again!</div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
