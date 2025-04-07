@@ -93,9 +93,32 @@ body {
     z-index: 999;
 }
 
+#play-again {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+#play-again:hover {
+    transform: scale(1.05);
+} 
+
 .popup {
   display: none;
 }
 .popup.show {
   display: block;
 }
+
+body.success-bg {
+    background-color: #b6f7b6 !important;
+  }
+  body.fail-bg {
+    background-color: #f7b6b6 !important;
+  }
+  

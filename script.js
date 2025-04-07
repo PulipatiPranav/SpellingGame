@@ -2,9 +2,15 @@ const gameContainer = document.getElementById("game-container");
 const blanks = document.querySelectorAll(".blank");
 const successPopup = document.getElementById("success-popup");
 const failurePopup = document.getElementById("failure-popup");
+const catGif = document.getElementById("cat-gif");
 
 const word = "BAT";
 let droppedLetters = {};
+
+
+const idleGif = "idle.gif";
+const successGif = "successGif2.gif";
+const failureGif = "failureGif2.gif";
 
 function createFloatingLetters() {
     document.querySelectorAll('.letter').forEach(letter => letter.remove());
@@ -61,15 +67,13 @@ function moveLetters() {
 
 function setupDropZones() {
     blanks.forEach(blank => {
-        blank.addEventListener("dragover", e => {
-            e.preventDefault();
-        });
+        blank.addEventListener("dragover", e => e.preventDefault());
 
-        blank.addEventListener("dragenter", e => {
+        blank.addEventListener("dragenter", () => {
             blank.classList.add("over");
         });
 
-        blank.addEventListener("dragleave", e => {
+        blank.addEventListener("dragleave", () => {
             blank.classList.remove("over");
         });
 
@@ -98,14 +102,29 @@ function checkIfCorrect() {
         if (isCorrect) {
             successPopup.classList.add("show");
             failurePopup.classList.remove("show");
+            document.body.classList.add("success-bg");
+            catGif.src = successGif;
         } else {
             failurePopup.classList.add("show");
             successPopup.classList.remove("show");
+            document.body.classList.add("fail-bg");
+            catGif.src = failureGif;
         }
+        document.getElementById("play-again").style.display = "block";
     }
 }
 
-// Run game
+document.getElementById("play-again").addEventListener("click", () => {
+    droppedLetters = {};
+    blanks.forEach(blank => blank.textContent = "");
+    document.body.className = ""; 
+    catGif.src = idleGif;
+    document.getElementById("play-again").style.display = "none";
+    successPopup.classList.remove("show");
+    failurePopup.classList.remove("show");
+    createFloatingLetters();
+});
+
 createFloatingLetters();
 moveLetters();
 setupDropZones();
