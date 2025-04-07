@@ -9,8 +9,8 @@ let droppedLetters = {};
 
 
 const idleGif = "idle.gif";
-const successGif = "successGif2.gif";
-const failureGif = "failureGif2.gif";
+const successGif = "successGif.gif";
+const failureGif = "failureGif.gif";
 
 function createFloatingLetters() {
     document.querySelectorAll('.letter').forEach(letter => letter.remove());
